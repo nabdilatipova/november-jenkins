@@ -12,7 +12,7 @@ node {
 	stage("Stage4"){
 		echo "hello"
 }
-	stage("Stage5"){
-		echo "hello"
+	stage("Send Email to Support"){
+		mail bcc: '', body: 'Running', cc: 'support@company.com', from: '', replyTo: '', subject: 'Test', to: 'farrukhsadykov@gmail.com'
 	}
 }
