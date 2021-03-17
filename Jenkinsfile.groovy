@@ -1,4 +1,3 @@
-# Scripted pipeline 
 node {
     stage("Stage1"){
         echo "Hello"
