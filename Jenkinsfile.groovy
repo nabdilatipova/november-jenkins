@@ -1,20 +1,18 @@
 node {
-    stage("Stage1"){
-        echo "Hello"
-    }
-    stage("Stage2"){
-        echo "Hello"
-    }
-    stage("Stage3"){
-        echo "Hello"
-    }
-    stage("Stage4"){
-        echo "Hello"
-    }
-    stage("Stage5"){
-        echo "Hello"
-    }
+	properties([pipelineTriggers([cron('* * * * *')])])
+	stage("Stage1"){
+		echo "hello"
 }
-
-
-
+	stage("Stage2"){
+		echo "hello"
+}
+	stage("Stage3"){
+		echo "hello"
+}
+	stage("Stage4"){
+		echo "hello"
+}
+	stage("Stage5"){
+		echo "hello"
+	}
+}
