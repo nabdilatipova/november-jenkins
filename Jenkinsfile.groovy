@@ -10,15 +10,14 @@ properties([
 
 
 node {
-	stage("Stage1"){
+	stage("Pull Repo"){
 		checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/infrastructure.git']]])
 }
-// 	stage("Call Another Job"){
-// 		build "Packer"
-// }
-	stage("Stage3"){
+	stage("Initialize"){
 		timestamps {
-            echo "hello"
+            ws("template/infrastructure/vpc"){
+                sh "make i"
+            }
     }
 }
 	stage("Stage4"){
@@ -48,5 +47,8 @@ node {
     // }
     // stage("Intentionally Failed"){
     // 		error 'failed'
+    // }
+    // 	stage("Call Another Job"){
+    // 		build "Packer"
     // }
 }
