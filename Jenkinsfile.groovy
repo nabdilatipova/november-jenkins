@@ -23,9 +23,9 @@ node {
 			fi
 		'''
 	}
-    stage("Sleep"){
-		sleep 60
-}
+//     stage("Sleep"){
+// 		sleep 60
+// }
 
 
 	stage("Send Email to Support"){
