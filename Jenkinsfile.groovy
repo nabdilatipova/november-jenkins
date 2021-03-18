@@ -12,6 +12,9 @@ node {
 	stage("Stage4"){
 		echo "hello"
 }
+	stage("Ask for Input"){
+		input 'Should I proceed?'
+	}
 	stage("Send Email to Support"){
 		mail bcc: '', body: 'Running', cc: 'support@company.com', from: '', replyTo: '', subject: 'Test', to: 'farrukhsadykov@gmail.com'
 	}
