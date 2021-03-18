@@ -10,7 +10,9 @@ node {
 		echo "hello"
 }
 	stage("Stage4"){
-		echo "hello"
+		timestamp {
+            echo "hello"
+        }
 }
 	stage("Script"){
 		sh label: '', script: 
@@ -23,10 +25,6 @@ node {
 			fi
 		'''
 	}
-//     stage("Sleep"){
-// 		sleep 60
-// }
-
 
 	stage("Send Email to Support"){
 		mail bcc: '', body: 'Running', cc: 'support@company.com', from: '', replyTo: '', subject: 'Test', to: 'farrukhsadykov@gmail.com'
@@ -34,4 +32,7 @@ node {
     stage("Send Notifications to Slack"){
 		slackSend color: '#BADA55', message: 'Hello, World!'
 	}
+    // stage("Sleep"){
+	// 	sleep 60000000
+    // }
 }
