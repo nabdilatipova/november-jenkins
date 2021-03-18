@@ -1,9 +1,12 @@
 properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '10', numToKeepStr: '10')), 
+    parameters([choice(choices: [
+        'dev', 
+        'qa', 
+        'stage', 
+        'prod'], 
+    description: 'Which Environment to Build? ', name: 'ENVIRONMENT_TO_BUILD')]), 
     pipelineTriggers([cron('H/5 * * * *')])])
-
-
-
 
 
 node {
