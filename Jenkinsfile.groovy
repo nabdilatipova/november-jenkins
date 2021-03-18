@@ -48,13 +48,12 @@ stage("Format"){
                 }
             }
     }
-	
-	stage("Send Email to Support"){
-		mail bcc: '', body: 'Running', cc: 'support@company.com', from: '', replyTo: '', subject: 'Test', to: 'farrukhsadykov@gmail.com'
-	}
-    stage("Send Notifications to Slack"){
+	stage("Send Notifications to Slack"){
 		slackSend color: '#BADA55', message: 'Hello, World!'
 	}
+	// stage("Send Email to Support"){
+	// 	mail bcc: '', body: 'Running', cc: 'support@company.com', from: '', replyTo: '', subject: 'Test', to: 'farrukhsadykov@gmail.com'
+	// }
     // stage("Sleep"){
 	// 	sleep 60000000
     // }
