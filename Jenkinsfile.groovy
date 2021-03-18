@@ -1,9 +1,8 @@
 properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '10', numToKeepStr: '10')), 
-    disableConcurrentBuilds(), 
-    parameters([choice(choices: ['dev', 'qa', 'stage', 'prod'], description: 'Which environment to Build? ', name: 'ENVIRONMENT')]), 
+    disableConcurrentBuilds(), parameters([booleanParam(defaultValue: true, description: 'apply', name: 'ACTION'), 
+    choice(choices: ['dev', 'qa', 'stage', 'prod'], description: 'Which Environment Build ? ', name: 'ENVIRONMENT')]), 
     pipelineTriggers([cron('H/5 * * * *')])])
-
 
 node {
 	stage("Pull Repo"){
