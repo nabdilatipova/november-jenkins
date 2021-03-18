@@ -41,7 +41,7 @@ stage("Format"){
                 }
             }
     }
-    stage("Apply"){
+    stage("Clean Up"){
             timestamps {
                 ws("workspace/infrastructura/vpc"){
                     sh "make c"
