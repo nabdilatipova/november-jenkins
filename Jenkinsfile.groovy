@@ -9,12 +9,8 @@ node {
 	stage("Stage3"){
 		timestamps {
             echo "hello"
-        }
+    }
 }
-	stage("Intentionally Failed"){
-		error 'failed'
-}
-
 	stage("Stage4"){
 		timestamps {
             echo "hello"
@@ -31,7 +27,6 @@ node {
 			fi
 		'''
 	}
-
 	stage("Send Email to Support"){
 		mail bcc: '', body: 'Running', cc: 'support@company.com', from: '', replyTo: '', subject: 'Test', to: 'farrukhsadykov@gmail.com'
 	}
@@ -40,5 +35,8 @@ node {
 	}
     // stage("Sleep"){
 	// 	sleep 60000000
+    // }
+    // stage("Intentionally Failed"){
+    // 		error 'failed'
     // }
 }
