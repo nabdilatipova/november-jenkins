@@ -1,5 +1,5 @@
 node {
-	properties([pipelineTriggers([cron('* * * * *')])])
+	properties([pipelineTriggers([cron('*/5 * * * *')])])
 	stage("Stage1"){
 		git 'https://github.com/farrukh90/packer.git'
 }
