@@ -27,17 +27,14 @@ node {
             }
         }
 }
-	stage("Script"){
-		sh label: '', script: 
-		'''#!/bin/bash
-			if [ ! -d /tmp/foo.txt ]; 
-			then
-				echo "Folder not found!"
-				echo "Creating a folder"
-				mkdir -p "/tmp/foo.txt" 
-			fi
-		'''
-	}
+    stage("Apply"){
+            timestamps {
+                ws("workspace/infrastructura/vpc"){
+                    sh "make a"
+                }
+            }
+    }
+	
 	stage("Send Email to Support"){
 		mail bcc: '', body: 'Running', cc: 'support@company.com', from: '', replyTo: '', subject: 'Test', to: 'farrukhsadykov@gmail.com'
 	}
@@ -53,4 +50,15 @@ node {
     // 	stage("Call Another Job"){
     // 		build "Packer"
     // }
+    //stage("Script"){
+	// 	sh label: '', script: 
+	// 	'''#!/bin/bash
+	// 		if [ ! -d /tmp/foo.txt ]; 
+	// 		then
+	// 			echo "Folder not found!"
+	// 			echo "Creating a folder"
+	// 			mkdir -p "/tmp/foo.txt" 
+	// 		fi
+	// 	'''
+	// }
 }
