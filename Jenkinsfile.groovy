@@ -13,6 +13,13 @@ node {
 	stage("Pull Repo"){
 		checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/infrastructure.git']]])
 }
+stage("Format"){
+		timestamps {
+            ws("workspace/infrastructura/vpc"){
+                sh "make f"
+            }
+    }
+}
 	stage("Initialize"){
 		timestamps {
             ws("workspace/infrastructura/vpc"){
@@ -31,6 +38,13 @@ node {
             timestamps {
                 ws("workspace/infrastructura/vpc"){
                     sh "make a"
+                }
+            }
+    }
+    stage("Apply"){
+            timestamps {
+                ws("workspace/infrastructura/vpc"){
+                    sh "make c"
                 }
             }
     }
