@@ -12,7 +12,7 @@ node {
         }
 }
 	stage("Intentionally Failed"){
-		unstable 'failed'
+		error 'failed'
 }
 
 	stage("Stage4"){
