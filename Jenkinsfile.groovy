@@ -20,9 +20,11 @@ node {
             }
     }
 }
-	stage("Stage4"){
+	stage("Plan"){
 		timestamps {
-            echo "hello"
+            ws("workspace/infrastructura/vpc"){
+                sh "make p"
+            }
         }
 }
 	stage("Script"){
