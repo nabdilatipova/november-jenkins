@@ -1,11 +1,7 @@
 properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '10', numToKeepStr: '10')), 
-    parameters([choice(choices: [
-        'dev', 
-        'qa', 
-        'stage', 
-        'prod'], 
-    description: 'Which Environment to Build? ', name: 'ENVIRONMENT')]), 
+    disableConcurrentBuilds(), 
+    parameters([choice(choices: ['dev', 'qa', 'stage', 'prod'], description: 'Which environment to Build? ', name: 'ENVIRONMENT')]), 
     pipelineTriggers([cron('H/5 * * * *')])])
 
 
