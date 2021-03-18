@@ -1,6 +1,7 @@
 properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '10', numToKeepStr: '10')), 
-    disableConcurrentBuilds(), parameters([booleanParam(defaultValue: true, description: 'apply', name: 'ACTION'), 
+    disableConcurrentBuilds(), 
+    parameters([booleanParam(defaultValue: true, description: 'a', name: 'Apply'), 
     choice(choices: ['dev', 'qa', 'stage', 'prod'], description: 'Which Environment Build ? ', name: 'ENVIRONMENT')]), 
     pipelineTriggers([cron('H/5 * * * *')])])
 
@@ -12,7 +13,6 @@ stage("Format"){
 		timestamps {
             ws("workspace/infrastructura/vpc"){
                 sh "make f"
-                echo "${ACTION}"
             }
     }
 }
