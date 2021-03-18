@@ -15,12 +15,11 @@ node {
 	stage("Script"){
 		sh label: '', script: 
 		'''#!/bin/bash
-			if [ ! -f /tmp/foo.txt ]; 
+			if [ ! -d /tmp/foo.txt ]; 
 			then
-				echo "File not found!"
+				echo "Folder not found!"
 				echo "Creating a folder"
 				mkdir -p "/tmp/foo.txt" 
-				
 			fi
 		'''
 	}
