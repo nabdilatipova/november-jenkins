@@ -11,6 +11,10 @@ node {
             echo "hello"
         }
 }
+	stage("Intentionally Failed"){
+		unstable 'failed'
+}
+
 	stage("Stage4"){
 		timestamps {
             echo "hello"
