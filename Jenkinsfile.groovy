@@ -23,7 +23,7 @@ node {
 			fi
 		'''
 	}
-    stage("Stage4"){
+    stage("Sleep"){
 		sleep 60
 }
 
