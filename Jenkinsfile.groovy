@@ -1,7 +1,8 @@
 properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '10', numToKeepStr: '10')), 
     disableConcurrentBuilds(), 
-    parameters([choice(choices: ['a', 'd'], description: 'Apply/Delete', name: 'ACTION'), 
+    parameters([
+    choice(choices: ['a', 'd'], description: 'Apply_Delete', name: 'ACTION'), 
     choice(choices: ['dev', 'qa', 'stage', 'prod'], description: 'Which Environment? ', name: 'ENVIRONMENT')]), 
     pipelineTriggers([cron('H/5 * * * *')])])
 
