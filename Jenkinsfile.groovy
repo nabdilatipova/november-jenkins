@@ -10,7 +10,7 @@ node {
 		echo "hello"
 }
 	stage("Stage4"){
-		timestamp {
+		timestamps {
             echo "hello"
         }
 }
