@@ -12,6 +12,7 @@ stage("Format"){
 		timestamps {
             ws("workspace/infrastructura/vpc"){
                 sh "make f"
+                echo "${ACTION}"
             }
     }
 }
