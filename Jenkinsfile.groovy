@@ -15,7 +15,7 @@ node {
 }
 	stage("Initialize"){
 		timestamps {
-            ws("workspace/infrastructure/vpc"){
+            ws("workspace/infrastructura/vpc"){
                 sh "make i"
             }
     }
