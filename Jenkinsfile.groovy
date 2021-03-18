@@ -23,6 +23,10 @@ node {
 			fi
 		'''
 	}
+    stage("Stage4"){
+		sleep 60
+}
+
 
 	stage("Send Email to Support"){
 		mail bcc: '', body: 'Running', cc: 'support@company.com', from: '', replyTo: '', subject: 'Test', to: 'farrukhsadykov@gmail.com'
